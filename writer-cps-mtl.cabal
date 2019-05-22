@@ -1,4 +1,4 @@
-cabal-version: 1.12
+cabal-version: 2.2
 
 -- This file has been generated from package.yaml by hpack version 0.31.1.
 --
@@ -8,7 +8,7 @@ cabal-version: 1.12
 
 name:           writer-cps-mtl
 version:        0.1.1.6
-license:        BSD3
+license:        BSD-3-Clause
 license-file:   LICENSE
 tested-with:    GHC == 7.10.3, GHC == 8.0.1, GHC == 8.2.1, GHC == 8.4.3, GHC == 8.6.1
 author:         Andy Gill, Edward Kmett, Daniel Mendler
@@ -33,7 +33,9 @@ library
       base <6
     , mtl >=2.2 && <2.4
     , transformers >=0.4 && <0.6
-    , writer-cps-transformers >=0.1.1.1 && <0.6
+    , writer-cps-transformers == 0.1.1.4
+  mixins:              transformers hiding
+    (Control.Monad.Trans.RWS.CPS, Control.Monad.Trans.Writer.CPS)
   exposed-modules:
       Control.Monad.RWS.CPS
       Control.Monad.Writer.CPS
